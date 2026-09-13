@@ -9,7 +9,8 @@ Connect your YouTube channel once, then ask Claude things like "why did my last 
 - MCP registry: [`ai.klyf/klyf`](https://registry.modelcontextprotocol.io/v0/servers?search=klyf)
 - Transport: Streamable HTTP, remote and hosted. Nothing to install or self-host.
 
-This repository is the public documentation for the connector. The product source is not open.
+This repository is the public documentation for the connector. The product source is not open. The MIT
+licence here covers this documentation; the Klyf service itself is proprietary.
 
 ## Connect it
 
