@@ -1,5 +1,7 @@
 # Klyf
 
+[![Klyf MCP connector, tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/ai.klyf/klyf/badges/score.svg)](https://glama.ai/mcp/connectors/ai.klyf/klyf)
+
 **Klyf is an AI YouTube analyst that runs inside Claude as a hosted MCP connector. It reads a creator's own channel and answers questions about it in plain language.**
 
 Connect your YouTube channel once, then ask Claude things like "why did my last video flop" or "what should I make next", and Klyf reads your real analytics, audience and comments and answers with a decision rather than another dashboard.
