@@ -1,6 +1,7 @@
 # Klyf
 
 [![Klyf MCP connector, tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/ai.klyf/klyf/badges/score.svg)](https://glama.ai/mcp/connectors/ai.klyf/klyf)
+[![M8ven Score](https://m8ven.ai/badge/mcp/klyf-ai-youtube-mcp-mvnl5f?v=7a8bd30717b0e60b54d69d50dbad760b)](https://m8ven.ai/mcp/klyf-ai-youtube-mcp-mvnl5f)
 
 **Klyf is an AI YouTube analyst that runs inside Claude as a hosted MCP connector. It reads a creator's own channel and answers questions about it in plain language.**
 
