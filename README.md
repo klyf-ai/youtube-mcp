@@ -71,6 +71,7 @@ Klyf answers in the language you write in.
 | `analyze_audience` | Who the audience is, from the channel's own data | Read | Free |
 | `find_best_videos` | Best-performing videos, ranked several ways | Read | Free |
 | `find_best_thumbnails` | What the best-performing thumbnails have in common | Read | Free |
+| `find_videos` | Search the catalogue by title, description or tags, and list what matches | Read | Free |
 | `suggest_ideas` | Specific ideas to make next, grounded in what already works | Read | Free |
 | `evaluate_idea` | Whether a specific idea or title is worth making | Read | Free |
 | `package_video` | Title options and thumbnail text for a video | Read | Free |
