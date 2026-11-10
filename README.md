@@ -83,6 +83,7 @@ Klyf answers in the language you write in.
 | `get_weekly_digest` | A weekly game plan | Read | **Pro** |
 | `enable_auto_reply` | Turn on approved comment replies | Write | **Pro** |
 | `reply_to_comment` | Post one approved reply | Write | **Pro** |
+| `update_video_details` | Apply an approved title, description or tags to a video | Write | **Pro** |
 | `upgrade_to_pro` | Link to upgrade | Write | Free |
 | `submit_feedback` | Send feedback or a bug report to the team | Write | Free |
 
@@ -97,7 +98,15 @@ https://www.googleapis.com/auth/yt-analytics.readonly
 
 Klyf cannot post, edit or delete anything with these. `youtube.force-ssl`, the scope that allows writes, is deliberately avoided in the base connection because it is far broader than a read feature needs.
 
-The one exception is auto-reply. If a Pro user turns it on, Klyf asks separately for `youtube.force-ssl` on its own consent screen, and it gates only comment replies the creator has approved. It is never part of the initial connection.
+The one exception is the optional write permission. If a Pro user turns it on, Klyf asks separately for `youtube.force-ssl` on its own consent screen. It is never part of the initial connection, and Google offers no narrower scope for these actions.
+
+It gates three things, and all three require the creator to approve the exact content first:
+
+- posting a comment reply they have read
+- applying a title, description or tags they have approved to one of their own videos
+- reading the captions of their own videos, so a drafted script matches their voice
+
+Klyf never deletes anything. Before changing a video it stores the complete previous title, description and tags, checks the video afterwards to confirm nothing else moved, and restores the original if anything did. The previous wording is kept for 30 days so a creator can ask for it back. `update_video_details` is the only tool that declares `destructiveHint`, because it replaces wording that is already published.
 
 ## Pricing
 
