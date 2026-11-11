@@ -40,7 +40,9 @@ Klyf is a remote Streamable HTTP server with OAuth. Point your client at the con
 }
 ```
 
-Client registration uses [Client ID Metadata Documents](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration), which the MCP specification recommends. Dynamic Client Registration is deliberately not offered: the spec deprecates it, and open registration is a consent-phishing surface. Clients that only implement DCR will not be able to register.
+Both registration mechanisms are advertised, so a client can use whichever it implements: [Client ID Metadata Documents](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration), which the MCP specification recommends, and Dynamic Client Registration.
+
+Discovery starts at `https://klyf.ai/.well-known/oauth-protected-resource`, which names `https://login.klyf.ai` as the authorization server. Read that server's own metadata for the authorization, token and registration endpoints.
 
 ## What you can ask
 
@@ -50,6 +52,7 @@ Plain language, in the same conversation you already work in:
 - "What should I make next?"
 - "How is my channel doing?"
 - "Who is actually watching my videos?"
+- "Who else is in my niche, and what am I missing?"
 - "Give me title options for this video."
 - "Is this idea worth making?"
 - "What do my comments say this week?"
@@ -59,7 +62,9 @@ Klyf answers in the language you write in.
 
 ## Tools
 
-21 tools. Read-only unless marked otherwise. Most work on the free plan; the ones marked Pro are the ongoing work Klyf does for you rather than deeper numbers.
+23 tools. Read-only unless marked otherwise. The ones marked Pro are the ongoing work Klyf does for you rather than deeper numbers.
+
+**Billing is paused right now, so every tool below is open to every connected creator, Pro included.** The Plan column is what applies when billing is on.
 
 | Tool | What it does | Access | Plan |
 |---|---|---|---|
@@ -72,6 +77,7 @@ Klyf answers in the language you write in.
 | `find_best_videos` | Best-performing videos, ranked several ways | Read | Free |
 | `find_best_thumbnails` | What the best-performing thumbnails have in common | Read | Free |
 | `find_videos` | Search the catalogue by title, description or tags, and list what matches | Read | Free |
+| `research_niche` | Which channels YouTube places next to this one, what they typically get, and which subjects they cover that this channel never has | Read | Free |
 | `suggest_ideas` | Specific ideas to make next, grounded in what already works | Read | Free |
 | `evaluate_idea` | Whether a specific idea or title is worth making | Read | Free |
 | `package_video` | Title options and thumbnail text for a video | Read | Free |
@@ -84,8 +90,9 @@ Klyf answers in the language you write in.
 | `enable_auto_reply` | Turn on approved comment replies | Write | **Pro** |
 | `reply_to_comment` | Post one approved reply | Write | **Pro** |
 | `update_video_details` | Apply an approved title, description or tags to a video | Write | **Pro** |
-| `upgrade_to_pro` | Link to upgrade | Write | Free |
 | `submit_feedback` | Send feedback or a bug report to the team | Write | Free |
+
+Most of these read the creator's own channel and nothing else. `research_niche` is the exception: it reads the other channels YouTube itself sends the creator traffic from, so a creator can see where they stand and what their neighbours cover that they never have.
 
 ## Permissions
 
@@ -98,7 +105,7 @@ https://www.googleapis.com/auth/yt-analytics.readonly
 
 Klyf cannot post, edit or delete anything with these. `youtube.force-ssl`, the scope that allows writes, is deliberately avoided in the base connection because it is far broader than a read feature needs.
 
-The one exception is the optional write permission. If a Pro user turns it on, Klyf asks separately for `youtube.force-ssl` on its own consent screen. It is never part of the initial connection, and Google offers no narrower scope for these actions.
+The one exception is the optional write permission. If a creator turns it on, Klyf asks separately for `youtube.force-ssl` on its own consent screen. It is never part of the initial connection, and Google offers no narrower scope for these actions.
 
 It gates three things, and all three require the creator to approve the exact content first:
 
@@ -110,7 +117,9 @@ Klyf never deletes anything. Before changing a video it stores the complete prev
 
 ## Pricing
 
-Free to start. Klyf Pro is $19/mo billed annually, or $29/mo monthly, with a 30-day money-back guarantee on annual plans. Pro adds the always-on work: watching every upload, drafting comment replies, and sending a weekly game plan.
+Free to use today. Klyf is not selling anything at the moment, so there is no checkout and every Pro feature is open to every connected creator.
+
+Klyf Pro is the paid tier, and it covers the always-on work rather than deeper numbers: watching every upload, drafting comment replies, and sending a weekly game plan. When it returns, the current price will be on <https://klyf.ai>.
 
 ## `server.json`
 
@@ -121,6 +130,9 @@ Free to start. Klyf Pro is $19/mo billed annually, or $29/mo monthly, with a 30-
   "title": "Klyf",
   "description": "AI YouTube analyst in Claude for creators: audit, fix, decide what to make next, grow subs.",
   "websiteUrl": "https://klyf.ai",
+  "icons": [
+    { "src": "https://klyf.ai/icon.svg", "mimeType": "image/svg+xml", "sizes": ["any"] }
+  ],
   "version": "0.1.4",
   "remotes": [
     { "type": "streamable-http", "url": "https://klyf.ai/api/mcp" }
