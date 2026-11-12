@@ -52,7 +52,6 @@ Plain language, in the same conversation you already work in:
 - "What should I make next?"
 - "How is my channel doing?"
 - "Who is actually watching my videos?"
-- "Who else is in my niche, and what am I missing?"
 - "Give me title options for this video."
 - "Is this idea worth making?"
 - "What do my comments say this week?"
@@ -62,7 +61,7 @@ Klyf answers in the language you write in.
 
 ## Tools
 
-23 tools. Read-only unless marked otherwise. The ones marked Pro are the ongoing work Klyf does for you rather than deeper numbers.
+22 tools. Read-only unless marked otherwise. The ones marked Pro are the ongoing work Klyf does for you rather than deeper numbers.
 
 **Billing is paused right now, so every tool below is open to every connected creator, Pro included.** The Plan column is what applies when billing is on.
 
@@ -77,7 +76,6 @@ Klyf answers in the language you write in.
 | `find_best_videos` | Best-performing videos, ranked several ways | Read | Free |
 | `find_best_thumbnails` | What the best-performing thumbnails have in common | Read | Free |
 | `find_videos` | Search the catalogue by title, description or tags, and list what matches | Read | Free |
-| `research_niche` | Which channels YouTube places next to this one, what they typically get, and which subjects they cover that this channel never has | Read | Free |
 | `suggest_ideas` | Specific ideas to make next, grounded in what already works | Read | Free |
 | `evaluate_idea` | Whether a specific idea or title is worth making | Read | Free |
 | `package_video` | Title options and thumbnail text for a video | Read | Free |
@@ -92,7 +90,7 @@ Klyf answers in the language you write in.
 | `update_video_details` | Apply an approved title, description or tags to a video | Write | **Pro** |
 | `submit_feedback` | Send feedback or a bug report to the team | Write | Free |
 
-Most of these read the creator's own channel and nothing else. `research_niche` is the exception: it reads the other channels YouTube itself sends the creator traffic from, so a creator can see where they stand and what their neighbours cover that they never have.
+Every one of these reads the creator's own channel and nothing else.
 
 ## Permissions
 
